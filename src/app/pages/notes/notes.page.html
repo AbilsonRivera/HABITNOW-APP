@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <!-- Botón de retroceso (izquierda) -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Mis Notas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Entrada para nueva nota -->
+  <ion-item>
+    <ion-label position="stacked">Título</ion-label>
+    <ion-input [(ngModel)]="note.title" placeholder="Ej. Recordatorio"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Contenido</ion-label>
+    <ion-textarea [(ngModel)]="note.content" placeholder="Escribe tu nota..."></ion-textarea>
+  </ion-item>
+
+  <ion-button expand="block" color="success" (click)="saveNote()">Guardar Nota</ion-button>
+  <ion-button expand="block" color="danger" (click)="clearAll()">Borrar Todo</ion-button>
+
+  <!-- Lista de notas guardadas -->
+  <ion-list *ngIf="notes.length > 0">
+    <ion-list-header>
+      <ion-label>Notas guardadas</ion-label>
+    </ion-list-header>
+
+    <ion-item *ngFor="let n of notes; let i = index">
+      <ion-label>
+        <h2>{{ n.title }}</h2>
+        <p>{{ n.content }}</p>
+      </ion-label>
+      <ion-button slot="end" fill="clear" color="danger" (click)="confirmDelete(i)">
+        <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
