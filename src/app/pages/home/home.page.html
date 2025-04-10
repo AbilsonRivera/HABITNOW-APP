@@ -1,0 +1,33 @@
+<ion-content [fullscreen]="true">
+  <!-- Cabecera con logo - Ocupa todo el ancho -->
+  <div class="full-width-header">
+    <div class="logo-bar">
+      <img src="../assets/icon/icon.png" alt="HabitNow Logo" width="40" height="40">
+      <h1>HABITNOW</h1>
+    </div>
+  </div>
+
+  <!-- Contenido principal con padding -->
+  <div class="main-content">
+    <!-- Sección de slogan -->
+    <div class="slogan">
+      <p>Organiza tu mente,<br />conquista tu día 🧠✨</p>
+    </div>
+
+    <!-- Sección de botones de navegación -->
+    <div class="buttons">
+      <ion-button color="success" routerLink="/notas" expand="block">
+        Ir a NOTAS
+      </ion-button>
+      
+      <ion-button color="warning" routerLink="/habitos" expand="block">
+        Ir a HÁBITOS
+      </ion-button>
+    </div>
+
+    <!-- Pie de página -->
+    <div class="footer">
+      <p>Selecciona la opción a la que te diriges</p>
+    </div>
+  </div>
+</ion-content>

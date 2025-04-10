@@ -1,0 +1,87 @@
+ion-content {
+    --background: #ffffff;
+  }
+
+.logo-bar {
+    display: flex;
+    align-items: center;
+    background-color: #5aaf7b;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box; 
+    margin: 0; 
+
+    img {
+      width: 32px;
+      height: 32px;
+      margin-right: 10px;
+    }
+
+    h1 {
+      font-size: 20px;
+      color: white;
+      margin: 0;
+    }
+}
+  
+.slogan {
+    margin: 30px 20px 30px 20px; /* Arriba, Lados, Abajo */
+    background-color: #65ac71;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: bold;
+    border: 2px dashed #6c6c6c;
+}
+  
+.buttons {
+    display: flex;
+    flex-direction: row;  /* Distribución horizontal */
+    justify-content: space-around;  /* Espacio equilibrado */
+    align-items: center;  /* Alineación vertical */
+    gap: 16px;  /* Espacio entre botones */
+    margin: 30px 16px 0;
+    padding: 0 8px;
+  
+    ion-button {
+      flex: 1;  /* Ocupan el mismo espacio */
+      min-width: 120px;  /* Ancho mínimo */
+      max-width: 200px;  /* Ancho máximo */
+      height: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      --border-radius: 12px;
+      --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+  
+      /* Efecto hover */
+      &:hover {
+        transform: translateY(-2px);
+        --box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+  
+      /* Efecto activo */
+      &:active {
+        transform: translateY(1px);
+        --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+  
+      /* Quitar el expand="block" visualmente */
+      &[expand="block"] {
+        --width: auto;
+        --padding-start: 0;
+        --padding-end: 0;
+      }
+    }
+  }
+  
+  .footer {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+  }
+  
