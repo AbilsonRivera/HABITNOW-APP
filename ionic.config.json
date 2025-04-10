@@ -1,0 +1,7 @@
+{
+  "name": "habitnow-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
