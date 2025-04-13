@@ -1,0 +1,79 @@
+/* Estilos SCSS para mantener consistencia */
+.page-background {
+  --background: url('/assets/img/cielo.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+
+.content-container {
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 16px;
+  margin: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+
+
+.form-label {
+  color: #000000;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.custom-select, .custom-input, .custom-textarea {
+  --background:#ffffff;
+  --border-radius: 8px;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --color: #000000;
+  border: 1px solid rgba(90, 175, 123, 0.3);
+}
+
+.custom-textarea {
+  min-height: 150px;
+}
+
+.save-button {
+  --background: #5aaf7b;
+  --color: #000000;
+  --border-radius: 12px;
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  height: 50px;
+  margin-top: 20px;
+
+  &:disabled {
+    --background: #cccccc;
+    --color: #666666;
+  }
+}
+
+/* Estilos para el botón de back personalizado */
+ion-back-button {
+  --color: #000000;
+  --icon-color: #000000;
+  --icon-font-size: 1.5em;
+}
+
+/* Estilos responsivos */
+@media (min-width: 768px) {
+  .content-container {
+    max-width: 600px;
+    margin: 24px auto;
+  }
+}

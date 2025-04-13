@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar style="--background: #5aaf7b; --color: #000000;">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <h1>NOTAS</h1>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="page-background">
+  <div class="content-container">
+    <!-- Barra de búsqueda -->
+    <ion-searchbar [(ngModel)]="searchQuery" placeholder="Buscar notas..." debounce="300" class="custom-searchbar">
+    </ion-searchbar>
+
+    <!-- Categorías con scroll horizontal -->
+    <div class="categories-scroll-container">
+      <div class="categories-container">
+        <ion-chip *ngFor="let cat of categories" [color]="selectedCategory === cat ? 'primary' : 'medium'"
+          (click)="selectedCategory = cat" class="category-chip">
+          {{ cat }}
+        </ion-chip>
+      </div>
+    </div>
+
+    <!-- Lista de notas -->
+    <ion-list class="custom-list">
+      <ion-item-group *ngFor="let note of filteredNotes">
+        <ion-item-divider sticky class="category-divider">
+          <ion-label>{{ note.category }}</ion-label>
+        </ion-item-divider>
+
+        <ion-item class="note-item" lines="none">
+          <ion-label>
+            <h3>{{ note.title }}</h3>
+            <p>{{ note.content }}</p>
+            <p class="note-date">{{ note.createdAt | date:'medium' }}</p>
+          </ion-label>
+          <ion-buttons slot="end">
+            <ion-button fill="clear" (click)="navigateToEditNote(note)" class="edit-button">
+              <ion-icon name="create-outline"></ion-icon>
+            </ion-button>
+            <!-- En tu template (html) -->
+            <!-- Cambia el botón de eliminar en tu HTML -->
+            <ion-button fill="clear" color="danger" (click)="confirmDelete(note.id)">
+              <ion-icon name="trash-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-item>
+      </ion-item-group>
+    </ion-list>
+
+    <!-- Botón flotante -->
+    <ion-fab vertical="bottom" horizontal="end" class="add-button">
+      <ion-fab-button (click)="navigateToAddNote()" style="--background: #5aaf7b; --color: #000000;">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </div>
+</ion-content>

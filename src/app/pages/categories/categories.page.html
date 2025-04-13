@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar style="--background: #5aaf7b; --color: #000000;">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" style="--color: #000000;"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">CATEGORÍAS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="page-background">
+  <div class="content-container">
+    <h2 class="section-title">CATEGORÍAS</h2>
+  
+    <ion-list class="custom-list">
+      <ion-item-sliding *ngFor="let category of categories; let i = index">
+        <ion-item class="category-item">
+          <ion-label *ngIf="editingIndex !== i">{{ category }}</ion-label>
+          
+          <ion-input
+            *ngIf="editingIndex === i"
+            [(ngModel)]="editedCategory"
+            (keyup.enter)="saveEdit()"
+            (ionBlur)="saveEdit()"
+            class="edit-input"
+          ></ion-input>
+        </ion-item>
+        
+        <ion-item-options side="end">
+          <ion-item-option color="primary" (click)="startEditing(i)" class="edit-option">
+            <ion-icon name="create-outline" slot="icon-only"></ion-icon>
+          </ion-item-option>
+          
+          <ion-item-option color="danger" (click)="confirmDelete(category)" class="delete-option">
+            <ion-icon name="trash-outline" slot="icon-only"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  
+    <ion-fab vertical="bottom" horizontal="end" class="add-button">
+      <ion-fab-button (click)="navigateToAddCategory()" style="--background: #5aaf7b; --color: #000000;">
+        <ion-icon name="add-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </div>
+</ion-content>

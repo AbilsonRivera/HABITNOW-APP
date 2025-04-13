@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar style="--background: #5aaf7b; --color: #000000;">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/categories" style="--color: #000000;"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ isEditing ? 'EDITAR CATEGORÍA' : 'AGREGAR CATEGORÍA' }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="page-background">
+  <div class="content-container">
+    <h2 class="section-title">{{ isEditing ? 'EDITAR CATEGORÍA' : 'NUEVA CATEGORÍA' }}</h2>
+  
+    <ion-item class="form-item">
+      <ion-input
+        [(ngModel)]="category"
+        placeholder="Nombre de la categoría"
+        clearInput
+        class="custom-input"
+      ></ion-input>
+    </ion-item>
+  
+    <ion-button 
+      expand="block" 
+      (click)="saveCategory()"
+      class="save-button">
+      {{ isEditing ? 'ACTUALIZAR' : 'GUARDAR' }}
+    </ion-button>
+  </div>
+</ion-content>

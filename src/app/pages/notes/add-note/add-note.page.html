@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar style="--background: #5aaf7b; --color: #000000;">
+    <ion-buttons slot="start">
+      <ion-back-button 
+        defaultHref="/notes"
+        style="--color: #000000; --icon-font-size: 24px;">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ isEditing ? 'EDITAR NOTA' : 'NUEVA NOTA' }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button 
+        (click)="saveNote()" 
+        [disabled]="!note.title || !note.category"
+        style="--color: #000000; font-weight: bold;">
+        {{ isEditing ? 'Actualizar' : 'Guardar' }}
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="page-background">
+  <div class="content-container form-container">
+    <!-- Selector de Categoría -->
+    <div class="form-group">
+      <ion-label position="stacked" class="form-label">Categoría</ion-label>
+      <ion-select 
+        [(ngModel)]="note.category" 
+        interface="action-sheet"
+        style="color: #000000;"
+        class="custom-select">
+        <ion-select-option *ngFor="let cat of categories" [value]="cat">
+          {{ cat }}
+        </ion-select-option>
+      </ion-select>
+    </div>
+
+    <!-- Campo de Título -->
+    <div class="form-group">
+      <ion-label position="stacked" class="form-label">Título</ion-label>
+      <ion-input
+        [(ngModel)]="note.title"
+        class="custom-input"
+        clearInput>
+      </ion-input>
+    </div>
+
+    <!-- Área de Contenido -->
+    <div class="form-group">
+      <ion-label position="stacked" class="form-label">Descripción</ion-label>
+      <ion-textarea
+        [(ngModel)]="note.content"
+        class="custom-textarea"
+        autoGrow
+        rows="6"
+        placeholder="Escribe aquí tu nota...">
+      </ion-textarea>
+    </div>
+
+    <!-- Botón de Guardar (versión móvil) -->
+    <ion-button 
+      expand="block" 
+      class="save-button"
+      (click)="saveNote()"
+      [disabled]="!note.title || !note.category">
+      <ion-icon name="save-outline" slot="start"></ion-icon>
+      {{ isEditing ? 'ACTUALIZAR NOTA' : 'GUARDAR NOTA' }}
+    </ion-button>
+  </div>
+</ion-content>
